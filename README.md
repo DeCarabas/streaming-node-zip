@@ -5,7 +5,7 @@ That implementation was based on the format as described [here](https://pkware.c
 It has been altered to be node.js specific, using buffers and whatnot, and several other things besides, because I want to run this on the server side.
 (Running on the server side will let me maybe cache the zip file later if I want to, although the benefits of doing it are unclear.)
 
-It does no compression, which is fine since we're streaming JPGs that are already compressed; additional compression would just waste precious CPU cycles.
+It does no compression, which is fine since in its original use case it was streaming JPGs that are already compressed; additional compression would just waste precious CPU cycles.
 
 Unlike downzip, this version has proper flow control, so the zip stream can be piped into the response, and slow clients won't cause us to buffer the whole result in memory.
 
